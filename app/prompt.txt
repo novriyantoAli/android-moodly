@@ -1,0 +1,17 @@
+buatkan issue.md, berisi planning untuk membuat ini:
+
+gunakan dependency:
+
+Core Android & Compose
+ViewModel & State Management
+Navigation
+Dependency Injection Hilt
+Networking Retrofit + OkHttp
+Coroutines
+Serialization Gson
+Local Database Room
+DataStore
+Image Loading Coil
+
+jangan terlalu low level atau detail, cukup instruksikan secara high level
+nani document planningnya digunakan oleh programmer atau model yang lebih murah
