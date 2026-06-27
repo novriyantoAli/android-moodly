@@ -14,7 +14,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
 import net.coblos.moodly.data.local.pref.UserPreferencesDataSource
-import net.coblos.moodly.presentation.navigation.NavGraph
+import net.coblos.moodly.presentation.navigation.MainScreen
 import net.coblos.moodly.ui.theme.MoodlyTheme
 import javax.inject.Inject
 
@@ -29,10 +29,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             MoodlyTheme {
-                val navController = rememberNavController()
-                Surface(color = MaterialTheme.colorScheme.background) {
-                    NavGraph(navController = navController, userPreferencesDataSource = userPreferencesDataSource)
-                }
+                MainScreen(userPreferencesDataSource = userPreferencesDataSource)
             }
         }
     }

@@ -1,5 +1,8 @@
 package net.coblos.moodly.presentation.navigation
 
+import androidx.compose.material.icons.Icons
+import androidx.compose.ui.graphics.vector.ImageVector
+
 sealed class Screen(val route: String) {
     data object Home : Screen("home")
     data object AddMood : Screen("add_mood")
@@ -12,3 +15,10 @@ sealed class Screen(val route: String) {
         fun createRoute(consultationId: String) = "chat/$consultationId"
     }
 }
+
+data class NavigationItem(
+    val route: String,
+    val title: String,
+    val icon: ImageVector,
+    val requiredRoles: List<String> = emptyList()
+)

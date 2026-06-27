@@ -1,13 +1,14 @@
 package net.coblos.moodly.presentation.navigation
 
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import androidx.navigation.compose.rememberNavController
 import net.coblos.moodly.data.local.pref.UserPreferences
 import net.coblos.moodly.data.local.pref.UserPreferencesDataSource
 import net.coblos.moodly.presentation.home.HomeScreen
@@ -16,7 +17,8 @@ import net.coblos.moodly.presentation.login.LoginScreen
 @Composable
 fun NavGraph(
     navController: NavHostController,
-    userPreferencesDataSource: UserPreferencesDataSource
+    userPreferencesDataSource: UserPreferencesDataSource,
+    modifier: Modifier = Modifier
 ) {
     val userPreferencesState by userPreferencesDataSource.userPreferences.collectAsState(initial = UserPreferences("", false, null, null, null, emptyList(), emptyList()))
 
@@ -28,13 +30,16 @@ fun NavGraph(
         }
     }
 
-    NavHost(navController = navController, startDestination = startDestination) {
+    NavHost(navController = navController, startDestination = startDestination, modifier = modifier) {
         composable(Screen.Login.route) {
             LoginScreen(navController = navController)
         }
         composable(Screen.Home.route) {
             HomeScreen(navController = navController)
         }
-        // Additional screens to be implemented
+        composable(Screen.Consultations.route) {
+             // Placeholder for now
+             Text("Consultations Screen")
+        }
     }
 }
