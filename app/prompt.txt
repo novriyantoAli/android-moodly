@@ -1,7 +1,0 @@
-buatkan issue.md, berisi perencanaan untuk nanti di implementasikan oleh junior programer atau AI model yang lebih murah
-
-isi dari perencanaannya adalah sebagai berikut
-
-
-
-jelaskan tahap-tahap yang harus dilakukan untuk mengimplementasikan fitur ini, anggap nanti yang mengimplementasikan adalah junior programer atau AI model yang lebih murah
