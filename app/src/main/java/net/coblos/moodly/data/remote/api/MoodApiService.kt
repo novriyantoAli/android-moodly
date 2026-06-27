@@ -11,6 +11,12 @@ interface MoodApiService {
 
     @DELETE("moods/{id}")
     suspend fun deleteMood(@Path("id") id: Long)
+
+    @POST("auth/login")
+    suspend fun login(@Body request: LoginRequest): LoginResponse
+
+    @POST("api/v1/logout")
+    suspend fun logout(@Body request: LogoutRequest): BasicResponse
 }
 
 data class MoodEntryDto(

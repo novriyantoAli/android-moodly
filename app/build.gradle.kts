@@ -69,6 +69,7 @@ dependencies {
     // Coil & Navigation
     implementation(libs.coil.compose)
     implementation(libs.navigation.compose)
+    implementation(libs.androidx.splashscreen)
 
     testImplementation(libs.junit)
     testImplementation("org.mockito:mockito-core:5.12.0")

@@ -1,17 +1,7 @@
-buatkan issue.md, berisi planning untuk membuat ini:
+buatkan issue.md, berisi perencanaan untuk nanti di implementasikan oleh junior programer atau AI model yang lebih murah
 
-gunakan dependency:
+isi dari perencanaannya adalah sebagai berikut
 
-Core Android & Compose
-ViewModel & State Management
-Navigation
-Dependency Injection Hilt
-Networking Retrofit + OkHttp
-Coroutines
-Serialization Gson
-Local Database Room
-DataStore
-Image Loading Coil
 
-jangan terlalu low level atau detail, cukup instruksikan secara high level
-nani document planningnya digunakan oleh programmer atau model yang lebih murah
+
+jelaskan tahap-tahap yang harus dilakukan untuk mengimplementasikan fitur ini, anggap nanti yang mengimplementasikan adalah junior programer atau AI model yang lebih murah
