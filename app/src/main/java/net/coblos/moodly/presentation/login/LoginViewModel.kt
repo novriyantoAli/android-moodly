@@ -28,6 +28,10 @@ class LoginViewModel @Inject constructor(
             }
         }
     }
+
+    fun resetLoginState() {
+        _loginState.value = LoginState.Idle
+    }
 }
 
 sealed class LoginState {
