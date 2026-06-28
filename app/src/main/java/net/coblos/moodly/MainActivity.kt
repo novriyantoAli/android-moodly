@@ -3,6 +3,8 @@ package net.coblos.moodly
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -15,6 +17,7 @@ import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
 import net.coblos.moodly.data.local.pref.UserPreferencesDataSource
 import net.coblos.moodly.presentation.navigation.MainScreen
+import net.coblos.moodly.ui.modal.GlobalErrorModal
 import net.coblos.moodly.ui.theme.MoodlyTheme
 import javax.inject.Inject
 
@@ -29,7 +32,14 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             MoodlyTheme {
-                MainScreen(userPreferencesDataSource = userPreferencesDataSource)
+//                MainScreen(userPreferencesDataSource = userPreferencesDataSource)
+                Box(modifier = Modifier.fillMaxSize()) {
+                    // Layar utama aplikasi Anda
+                    MainScreen(userPreferencesDataSource = userPreferencesDataSource)
+
+                    // Modal stand-by di layer paling atas aplikasi
+                    GlobalErrorModal()
+                }
             }
         }
     }

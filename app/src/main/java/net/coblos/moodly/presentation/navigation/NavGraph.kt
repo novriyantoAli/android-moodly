@@ -11,8 +11,12 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import net.coblos.moodly.data.local.pref.UserPreferences
 import net.coblos.moodly.data.local.pref.UserPreferencesDataSource
+import net.coblos.moodly.presentation.consultation.ChatScreen
+import net.coblos.moodly.presentation.consultation.ConsultationListScreen
 import net.coblos.moodly.presentation.home.HomeScreen
 import net.coblos.moodly.presentation.login.LoginScreen
+import androidx.navigation.NavType
+import androidx.navigation.navArgument
 
 @Composable
 fun NavGraph(
@@ -38,8 +42,16 @@ fun NavGraph(
             HomeScreen(navController = navController)
         }
         composable(Screen.Consultations.route) {
-             // Placeholder for now
-             Text("Consultations Screen")
+            ConsultationListScreen(onConsultationClick = { consultationId ->
+                navController.navigate(Screen.Chat.createRoute(consultationId))
+            })
+        }
+        composable(
+            route = Screen.Chat.route,
+            arguments = listOf(navArgument("consultationId") { type = NavType.StringType })
+        ) { backStackEntry ->
+            val consultationId = backStackEntry.arguments?.getString("consultationId") ?: ""
+            ChatScreen(consultationId = consultationId)
         }
     }
 }
