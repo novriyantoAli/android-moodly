@@ -90,7 +90,7 @@ fun ConsultationListScreen(
     viewModel: ConsultationViewModel = hiltViewModel(),
     onConsultationClick: (String) -> Unit
 ) {
-        val uiState by viewModel.uiState.collectAsState()
+    val uiState by viewModel.uiState.collectAsState()
     val searchQuery by viewModel.searchQuery.collectAsState()
     val selectedStatus by viewModel.selectedStatus.collectAsState()
     
@@ -107,7 +107,7 @@ fun ConsultationListScreen(
         floatingActionButton = {
         /* ... keep FAB as is ... */
             FloatingActionButton(
-                onClick = {},
+                onClick = { },
                 containerColor = MoodlyColors.Primary,
                 contentColor = MoodlyColors.OnPrimary,
                 shape = RoundedCornerShape(16.dp) // rounded-2xl
@@ -273,7 +273,7 @@ fun ConsultationListScreen(
                             state.data.forEach { chat ->
                                 ConsultationItemUI(
                                     chat = chat,
-                                    onClick = { onConsultationClick(chat.conversation_id) }
+                                    onClick = { onConsultationClick(chat.conversationId) }
                                 )
                             }
                         }
@@ -284,7 +284,8 @@ fun ConsultationListScreen(
     }
 }
 
-fun parseRelativeTime(createdAtStr: String): String {
+fun parseRelativeTime(createdAtStr: String?): String {
+    if (createdAtStr.isNullOrBlank()) return "-"
     return try {
         // 1. Bersihkan string tanggal agar formatnya seragam (menghapus pecahan mikrodetik jika ada)
         // Regex ini mengubah "2026-06-26T23:29:56.835832+08:00" menjadi "2026-06-26T23:29:56+0800"
@@ -554,7 +555,7 @@ fun ConsultationItemUI(chat: ConsultationResponse, onClick: () -> Unit) {
                         overflow = TextOverflow.Ellipsis
                     )
                     Text(
-                        text = parseRelativeTime(chat.created_at),
+                        text = parseRelativeTime(chat.createdAt),
                         fontSize = 12.sp,
                         fontWeight = if (isActiveStatus) FontWeight.Bold else FontWeight.Normal,
                         color = if (isActiveStatus) MoodlyColors.Primary else MoodlyColors.Outline
